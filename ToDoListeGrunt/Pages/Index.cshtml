@@ -1,0 +1,48 @@
+﻿@page
+@model ToDoListe.Pages.IndexModel
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var greeting = getGreetingsMessage()
+        $('h1').html(greeting);
+    });
+
+</script>
+
+<div>
+    <h1></h1>
+    <p>
+
+    </p>
+    <br/>
+    <p>
+        Diesen Monat hast Du folgende ToDos:
+    </p>
+    <br/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDo[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDo[0].DateToDo)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.ToDo) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateToDo)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
